@@ -7,3 +7,14 @@
   color: $font-primary;
   font-weight: 400;
 }
+
+
+.movie-rating {
+  padding-left: 3px;
+  margin-top: 20px;
+  color: $font-secondary;
+  display: flex;
+  span {
+    margin-right: 20px;
+  }
+}
