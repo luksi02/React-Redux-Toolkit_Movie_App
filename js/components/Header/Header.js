@@ -7,7 +7,6 @@ import user from "../../images/user.png"
 const Header = () => {
     return (
         <div className="header">
-            Header
             <Link to="/">
                 <div className="logo">Movie App</div>
             </Link>

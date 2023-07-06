@@ -1,5 +1,5 @@
 import React from "react";
-import {getAllMovies} from "../../features/movies/movieSlice";
+import {getAllMovies, getAllShows} from "../../features/movies/movieSlice";
 import {useSelector} from "react-redux";
 import MovieCard from "../MovieCard/MovieCard";
 import "./MovieListing.scss"
@@ -8,16 +8,19 @@ import "./MovieListing.scss"
 const MovieListing = () => {
 
     const movies = useSelector(getAllMovies);
-    // console.log(state);
-    console.log(movies);
-    console.log(movies.Search)
+    const series = useSelector(getAllShows);
+    // // console.log(state);
+    // console.log(movies);
+    // console.log(series);
+    // console.log(movies.Search);
+    // console.log(series.Search);
 
     let renderMovies = "";
 
     renderMovies = movies.Response === "True" ? (
-        movies.Search.map((movie, index) => {
+        movies.Search.map((movie, indexMovie) => {
             return(
-                <div key={index}>
+                <div key={indexMovie}>
             <MovieCard data={movie} />
                 </div>
         );
@@ -28,14 +31,35 @@ const MovieListing = () => {
         </div>
     )
 
+    let renderShows = "";
 
+    renderShows =
+        series.Response === "True" ? (
+            series.Search.map((movie, indexShow) => {
+            return(
+                <div key={indexShow}>
+            <MovieCard data={movie} />
+                </div>
+        );
+        })
+    ):(
+        <div className="series-error">
+            <h3>{series.Error}</h3>
+        </div>
+    )
 
     return (
         <div className="movie-wrapper">
             <div className="movie-list">
                 <h2>Movies</h2>
                 <div className="movie-container">
-                    {renderMovies}
+                    {renderMovies} render?
+                </div>
+            </div>
+            <div className="show-list">
+                <h2>Shows</h2>
+                <div className="movie-container">
+                    {renderShows}
                 </div>
             </div>
         </div>
