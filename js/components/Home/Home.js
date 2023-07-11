@@ -10,10 +10,13 @@ const Home = () => {
 
     const dispatch = useDispatch();
 
+    const movieText = "Harry";
+    const showText = "Friends";
+
     useEffect(() => {
 
-        dispatch(fetchAsyncShows());
-        dispatch(fetchAsyncMovies());
+        dispatch(fetchAsyncShows(showText));
+        dispatch(fetchAsyncMovies(movieText));
 
         // // const movieText = "Harry"
         // // now using middleware - redux-thunk:
