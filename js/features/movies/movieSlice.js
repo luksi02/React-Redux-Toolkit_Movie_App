@@ -5,12 +5,13 @@ import {APIKey} from "../../common/APIs/MovieAPIKey";
 
 export const fetchAsyncMovies = createAsyncThunk(
     "movies/fetchAsyncMovies",
-    async () => {
+    async (term) => {
 
-        const movieText = "Harry"
+        // const movieText = "Harry"
 
     const response = await movieAPI
-        .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
+        .get(`?apiKey=${APIKey}&s=${term}&type=movie`)
+        // .get(`?apiKey=${APIKey}&s=${movieText}&type=movie`)
         .catch((err) => {
             console.log("Error: ", err);
         });
@@ -20,12 +21,14 @@ export const fetchAsyncMovies = createAsyncThunk(
 
 export const fetchAsyncShows = createAsyncThunk(
     "movies/fetchAsyncShows",
-    async () => {
+    async (term) => {
+    // async () => {
 
-        const seriesText = "Friends"
+        // const seriesText = "Friends"
 
     const response = await movieAPI
-        .get(`?apiKey=${APIKey}&s=${seriesText}&type=series`)
+        .get(`?apiKey=${APIKey}&s=${term}&type=series`)
+        // .get(`?apiKey=${APIKey}&s=${seriesText}&type=series`)
         .catch((err) => {
             console.log("Error: ", err);
         });
